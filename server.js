@@ -23,3 +23,14 @@ app.get("/", (req, res) => {
 // Puerto
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+
+//---------------------------------------------------------------//
+
+import recetasRoutes from "./routes/recetas.js";
+app.use("/api/recetas", recetasRoutes);
+
+
+app.get('/api/recetas', (req, res) => {
+    res.json([{ nombre: 'Arepas', ingredientes: ['Harina', 'Agua', 'Sal'] }]);
+});
+
